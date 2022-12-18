@@ -5,6 +5,11 @@ pipeline{
         terraform 'terraform'
     }
     stages{
+        stage ('Clone') {
+            steps {
+                git branch: 'dev', url: "https://github.com/careem111/terraform-aws.git"
+            }
+        }
         stage ('Terraform init'){
             steps {
                 sh label: '', script: 'terraform init'
