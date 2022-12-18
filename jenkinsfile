@@ -10,19 +10,15 @@ pipeline{
                 git branch: 'dev', url: "https://github.com/careem111/terraform-aws.git"
             }
         }
-    stage{
         stage ('Terraform init'){
             steps {
                 sh label: '', script: 'terraform init'
                 }
             }
         }
-    stage{
         stage ('Terraform plan'){
             steps {
                 sh label: '', script: 'terraform plan'
                 }
             }
-        }
     }
-}
