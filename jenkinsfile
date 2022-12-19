@@ -7,17 +7,17 @@ pipeline{
     stages{
         stage ('Clone') {
             steps {
-                git branch: 'dev', url: "https://github.com/careem111/terraform-aws.git"
+                sh 'git clone -b dev https://github.com/careem111/terraform-aws.git'
             }
         }
         stage ('Terraform init'){
             steps {
-                sh label: '', script: 'terraform init'
+                sh 'terraform init'
                 }
             }
         stage ('Terraform plan'){
             steps {
-                sh label: '', script: 'terraform plan'
+                sh 'terraform plan'
                 }
             }
     }
